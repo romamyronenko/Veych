@@ -25,7 +25,11 @@ def get_karno_order(count_of_args):
     return matrix
 
 
+<<<<<<< HEAD
 def to_bin(matrix):  # now that's function useless
+=======
+def to_bin(matrix):
+>>>>>>> ec83abbaafca3eb1843a799c96b3a4c507d4a1bc
     # matrix->count_of_args <= 17, else long time
     """Convert all nums in matrix to bin with same size"""
     maximum = len(np.binary_repr(np.max(matrix)))
@@ -34,6 +38,7 @@ def to_bin(matrix):  # now that's function useless
     return mtbin(matrix)
 
 
+<<<<<<< HEAD
 def get_same_units(matrix):
     vertical = np.max(matrix)
     gorizontal = np.max(matrix)
@@ -54,6 +59,10 @@ print(get_same_units(get_veych_order(4)))
 #     a = a&i
 # p = np.vectorize(lambda e: np.binary_repr(e))
 # print(p(a))
+=======
+print(get_veych_order(4))
+print(to_bin(get_veych_order(4)))
+>>>>>>> ec83abbaafca3eb1843a799c96b3a4c507d4a1bc
 # print(get_karno_order(4))
 
 # x = to_bin(get_veych_order(3))
