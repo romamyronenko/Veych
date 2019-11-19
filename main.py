@@ -35,18 +35,15 @@ class GUI:
 
     def escape(self, event):
         """Method that handles press Escape. If Entry not empty clear, else close window."""
-<<<<<<< HEAD
+
         if not self.units.get():
-=======
-        if self.units.get() == '':
->>>>>>> ec83abbaafca3eb1843a799c96b3a4c507d4a1bc
             self.root.quit()
         else:
             self.units.delete(0, 'end')
 
     def save(self, event):
         """Specified file save path"""
-<<<<<<< HEAD
+
         print(filedialog.asksaveasfilename(filetypes=[('PNG', '*.PNG')],
                                            defaultextension=[('PNG', '*.PNG')]))
 
@@ -56,9 +53,6 @@ class GUI:
                             'Введите через пробел числа при которых функция принимает значения 1, после чего '
                             'нажмите Ctrl+S.\nЧтобы очистить поле нажмите Esc, при повторном нажатии - окно закроется.'
                             )
-=======
-        print(filedialog.asksaveasfilename(filetypes=[('PNG', '*.PNG')], defaultextension=[('PNG', '*.PNG')]))
->>>>>>> ec83abbaafca3eb1843a799c96b3a4c507d4a1bc
 
     def info(self, event):
         """Showed info how to use program"""

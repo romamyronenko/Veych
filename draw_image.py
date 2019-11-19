@@ -1,4 +1,5 @@
 import numpy as np
+from math import ceil
 
 
 def get_veych_order(count_of_args):
@@ -18,7 +19,7 @@ def get_karno_order(count_of_args):
     """Returned matrix with placement order nums for Karno cards"""
     matrix = np.array([[0]], int)
     for i in range(count_of_args):
-        if i//2%2 == 1:
+        if i >= ceil(count_of_args/2):
             matrix = np.vstack((matrix, np.flip(matrix, 0) + 2 ** i))
         else:
             matrix = np.hstack((matrix, np.flip(matrix, 1)+2**i))
@@ -35,33 +36,26 @@ def to_bin(matrix):  # now that's function useless
 
 
 def get_same_units(matrix):
+    """Returned same units for every column/string of matrix(bitwise and of all elements)"""
     vertical = np.max(matrix)
-    gorizontal = np.max(matrix)
+    horizontal = np.max(matrix)
     for i in matrix:
         vertical = np.bitwise_and(i, vertical)
     for j in np.transpose(matrix):
-        gorizontal = np.bitwise_and(gorizontal, j)
-    return vertical, gorizontal
+        horizontal = np.bitwise_and(horizontal, j)
+
+    for_out = lambda arr: f'%0{len(np.binary_repr(np.max(arr)))}i'
+    to_bin_hor = np.vectorize(lambda e: for_out(horizontal)%int(np.binary_repr(e)))
+    to_bin_vert = np.vectorize(lambda e: for_out(vertical)%int(np.binary_repr(e)))
+    return to_bin_vert(vertical), to_bin_hor(horizontal)
 
 
-print(get_veych_order(4))
-x = get_veych_order(4)
-print(np.bitwise_and(x[0], x[1]))
-print(get_same_units(get_veych_order(4)))
-# x = get_veych_order(5)
-# a = np.max(x)
-# for i in x:
-#     a = a&i
-# p = np.vectorize(lambda e: np.binary_repr(e))
-# print(p(a))
-# print(get_karno_order(4))
+x = get_veych_order(6)
+print(x)
+print(get_same_units(x))
 
-# x = to_bin(get_veych_order(3))
-# with open('1.txt', 'w+') as f:
-#     for i in x:
-#         for j in i:
-#             f.write(j)
-#             f.write(' ')
-#         f.write('\n')
 
-# print(x)
+class Draw:
+    def __init__(self):
+        self.font_size = 15
+        self.padding = 3
