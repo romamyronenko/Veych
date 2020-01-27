@@ -48,7 +48,7 @@ class GUI:
                                            defaultextension=[('PNG', '*.PNG')]))
 
     def info(self, event):
-        """Showed info how to use program"""
+        """Show info how to use program"""
         messagebox.showinfo('Вейч',
                             'Введите через пробел числа при которых функция принимает значения 1, после чего '
                             'нажмите Ctrl+S.\nЧтобы очистить поле нажмите Esc, при повторном нажатии - окно закроется.'
@@ -57,7 +57,7 @@ class GUI:
     def info(self, event):
         """Showed info how to use program"""
         messagebox.showinfo('Вейч',
-                            'Введите через пробел числа при которых функция принимает значения 1, после чего '
+                            'Введите через пробел числа, при которых функция принимает значения 1, после чего '
                             'нажмите Ctrl+S.\nЧтобы очистить поле нажмите Esc, при повторном нажатии - окно закроется.'
                             )
 
