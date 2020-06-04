@@ -43,3 +43,4 @@ class Coords:
     def get_top_arg(self, a, b):
         return (fields['main'] + fields['arg_cell_size'] * a + self.args_size[0] + fields['table_field'],
                 fields['main'] + fields['arg_cell_size'] * (b + 1))
+                

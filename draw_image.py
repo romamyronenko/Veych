@@ -10,7 +10,7 @@ class DrawTable:
         self.matrix, self.su = func[mode](units)
         self.units = units
 
-        self.font = ImageFont.truetype(r"C:\WINDOWS\Fonts\Arial.ttf", size=45)
+        self.font = ImageFont.truetype(r"fonts/Arial.ttf", size=45)
 
     def draw(self):
         count_of_args = ceil(log2(max(self.units) + 1))
@@ -40,3 +40,4 @@ class DrawTable:
 
 a = DrawTable((1, 2, 16))
 a.draw()
+

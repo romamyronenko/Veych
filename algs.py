@@ -69,3 +69,4 @@ def get_karno(units):
 def get_veych(units):
     matrix = get_veych_order(ceil(log2(max(units)+1)))
     return get_table(matrix, units)
+
