@@ -52,21 +52,26 @@ def get_same_units(matrix):
     return to_bin_hor(horizontal), to_bin_vert(vertical)
 
 
-def get_table(matrix, units):
-
+def get_table(matrix, units, any_values):
+    """Return table(with 1, 0 and 2(-)) and same units."""
     su = get_same_units(matrix)
     for i in range(len(matrix)):
         for j in range(len(matrix[i])):
-            matrix[i][j] = int(matrix[i][j] in units)
+            if matrix[i][j] in units:
+                matrix[i][j] = 1
+            elif matrix[i][j] in any_values:
+                matrix[i][j] = 2
+            else:
+                matrix[i][j] = 0
     return matrix, su
 
 
-def get_karno(units):
+def get_karno(units, any_values=[]):
     matrix = get_karno_order(ceil(log2(max(units)+1)))
-    return get_table(matrix, units)
+    return get_table(matrix, units, any_values)
 
 
-def get_veych(units):
+def get_veych(units, any_values=[]):
     matrix = get_veych_order(ceil(log2(max(units)+1)))
-    return get_table(matrix, units)
+    return get_table(matrix, units, any_values)
 
